@@ -54,3 +54,7 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 - [mbstring](http://php.net/manual/en/mbstring.installation.php)
 - [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
 - xml (enabled by default - don't turn it off)
+
+
+
+[code reference](https://github.com/codecon-dev/desafio-1-1s-vs-3j?tab=readme-ov-file)
