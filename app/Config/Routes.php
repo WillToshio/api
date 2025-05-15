@@ -34,7 +34,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->post('/users', 'User::save');
 $routes->get('/superusers', 'User::getSuperUser');
-
+$routes->get('/top-countries', 'User::getTopCountries');
+$routes->get('/team-insights', 'User::getTeamInsights');
 
 /*
  * --------------------------------------------------------------------

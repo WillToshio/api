@@ -60,4 +60,24 @@ class User extends BaseController
         $response["body"]['execution_time_ms'] = round(($fim - $inicio) * 1000, 2);
         return json_encode($response, JSON_UNESCAPED_UNICODE);
     }
+    public function getTopCountries(){
+        
+        $inicio = microtime(true);
+        $response = $this->user->getTopCountries();
+
+        $response["body"]["timestamp"] = date(DATE_ISO8601);
+        $fim = microtime(true);
+        $response["body"]['execution_time_ms'] = round(($fim - $inicio) * 1000, 2);
+        return json_encode($response, JSON_UNESCAPED_UNICODE);
+    }
+
+    public function getTeamInsights(){
+        $inicio = microtime(true);
+        $response = $this->user->getTeamInsights();
+
+        $response["body"]["timestamp"] = date(DATE_ISO8601);
+        $fim = microtime(true);
+        $response["body"]['execution_time_ms'] = round(($fim - $inicio) * 1000, 2);
+        return json_encode($response, JSON_UNESCAPED_UNICODE);
+    }
 }
