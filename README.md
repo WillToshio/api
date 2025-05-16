@@ -49,10 +49,10 @@ A proposta do desafio é simular um cenário real de backend, com análise de da
 | Método | Endpoint                    | Descrição                                    |
 |--------|-----------------------------|-----------------------------------------------|
 | POST   | `/users`                   | Adiciona usuários na memoria/array            |
-| GET    | `/superusuarios`           | Lista usuários com score alto e ativos        |
-| GET    | `/ranking-paises`          | Top países por quantidade de usuários ativos  |
-| GET    | `/analise-equipes`         | Estatísticas por equipe                       |
-| GET    | `/usuarios-ativos-por-dia` | Agrupamento de logins por data                |
+| GET    | `/superusers`              | Lista usuários com score alto e ativos        |
+| GET    | `/top-countries`           | Top países por quantidade de usuários ativos  |
+| GET    | `/team-insights`           | Estatísticas por equipe                       |
+| GET    | `/active-users-per-day`    | Agrupamento de logins por data                |
 | GET    | `/evaluation`              | Testa a própria API e retorna relatório        |
 
 ---
