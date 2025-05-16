@@ -1,60 +1,93 @@
-# CodeIgniter 4 Framework
+# 🧠 API de Análise de Usuários
 
-## What is CodeIgniter?
+Este projeto é uma **API RESTful desenvolvida em PHP (CodeIgniter 4)** que executa diversas análises sobre dados de usuários, incluindo ranking de países, atividades por dia, insights por equipe e muito mais.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](http://codeigniter.com).
+> 🔥 Este desafio foi inspirado no vídeo do Fellyph Cintra no YouTube:  
+> 👉 [Desenvolvendo um projeto de backend com CodeIgniter](https://www.youtube.com/watch?v=AFtRYXJVO-4)
 
-This repository holds the distributable version of the framework,
-including the user guide. It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+---
 
-More information about the plans for version 4 can be found in [the announcement](http://forum.codeigniter.com/thread-62615.html) on the forums.
+## 🎯 Objetivo
 
-The user guide corresponding to this version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+A proposta do desafio é simular um cenário real de backend, com análise de dados a partir de um grande volume de usuários (JSON com até 100.000 registros), e construção de uma API capaz de:
 
+- Processar dados em memória (simulando um banco)
+- Analisar times e projetos
+- Agrupar logins por dia
+- Gerar ranking por países
+- Avaliar o desempenho da própria API
 
-## Important Change with index.php
+---
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+## 🛠 Tecnologias Utilizadas
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+- ✅ **PHP 8+**
+- ✅ **CodeIgniter 4**
+- ✅ **JSON como fonte de dados**
+- ✅ **cURL** para chamadas internas
+- ✅ **MySQL / SQL Server / PostgreSQL** (estruturas disponíveis)
+- ✅ **Postman / Insomnia** para testes
 
-**Please** read the user guide for a better explanation of how CI4 works!
+---
 
-## Repository Management
+## 📂 Estrutura do Projeto
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+```
+/app
+/Controllers → Endpoints da API
+/Models → Simulação de armazenamento e lógica
+/Libraries → DTOs e estruturas auxiliares
+/Database/Seeds → Seeder para usuários
+/public
+/usuarios_100000.json → Base de dados em JSON
+```
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+---
 
-## Contributing
+## 📌 Endpoints Disponíveis
 
-We welcome contributions from the community.
+| Método | Endpoint                    | Descrição                                    |
+|--------|-----------------------------|-----------------------------------------------|
+| POST   | `/users`                   | Adiciona usuários na memoria/array            |
+| GET    | `/superusuarios`           | Lista usuários com score alto e ativos        |
+| GET    | `/ranking-paises`          | Top países por quantidade de usuários ativos  |
+| GET    | `/analise-equipes`         | Estatísticas por equipe                       |
+| GET    | `/usuarios-ativos-por-dia` | Agrupamento de logins por data                |
+| GET    | `/evaluation`              | Testa a própria API e retorna relatório        |
 
-Please read the [*Contributing to CodeIgniter*](https://github.com/codeigniter4/CodeIgniter4/blob/develop/CONTRIBUTING.md) section in the development repository.
+---
 
-## Server Requirements
+## ⚙️ Como rodar
 
-PHP version 7.3 or higher is required, with the following extensions installed:
+```bash
+# Clone o projeto
+git clone https://github.com/WillToshio/api.git
+cd api
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+# Instale dependências do CodeIgniter (se necessário)
+composer install
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+# Rode o servidor embutido
+php spark serve
+```
+---
+## 🧪 Testando a API
+Você pode testar diretamente com:
+- ✅ *Postman* ou *Insomnia*
+- ✅ Ou acessar /evaluation para ver os endpoints em tempo real
 
-- json (enabled by default - don't turn it off)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php)
-- xml (enabled by default - don't turn it off)
+---
+## 🧱 Suporte a Banco de Dados
+Embora a API funcione em memória com JSON, o projeto fornece scripts SQL para simular persistência em diferentes bancos:
+- ✅ **tables_mysql.sql**
+- ✅ **tables_sqlserver.sql**
+- ✅ **tables_sqlserver.sql**
 
+---
 
+##👨‍💻 Autor
+Desenvolvido por [WillToshio](https://www.linkedin.com/in/williantoshiocorr%C3%AAa/) como parte do desafio técnico proposto no vídeo:
+📺 Fellyph Cintra – [YouTube Link](https://www.youtube.com/watch?v=AFtRYXJVO-4)
 
-[code reference](https://github.com/codecon-dev/desafio-1-1s-vs-3j?tab=readme-ov-file)
+##👨‍💻 Autor
+Este projeto está sob a licença [MIT](https://pt.wikipedia.org/wiki/Licen%C3%A7a_MIT).
