@@ -34,12 +34,12 @@ A proposta do desafio é simular um cenário real de backend, com análise de da
 
 ```
 /app
-/Controllers → Endpoints da API
-/Models → Simulação de armazenamento e lógica
-/Libraries → DTOs e estruturas auxiliares
-/Database/Seeds → Seeder para usuários
+├─ /Controllers 🛠 Endpoints da API
+├─ /Models 💾 Simulação de armazenamento e lógica
+├─ /Libraries 📚 DTOs e estruturas auxiliares
+└─ /Database/Seeds 🌱 Seeder para usuários
 /public
-/usuarios_100000.json → Base de dados em JSON
+└─ /usuarios_100000.json 📄 Base de dados em JSON
 ```
 
 ---
