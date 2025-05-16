@@ -36,6 +36,9 @@ $routes->post('/users', 'User::save');
 $routes->get('/superusers', 'User::getSuperUser');
 $routes->get('/top-countries', 'User::getTopCountries');
 $routes->get('/team-insights', 'User::getTeamInsights');
+$routes->get('/active-users-per-day', 'User::getUserPerDay');
+$routes->get('/evaluation', 'User::getEvaluation');
+
 
 /*
  * --------------------------------------------------------------------

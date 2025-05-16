@@ -80,4 +80,47 @@ class User extends BaseController
         $response["body"]['execution_time_ms'] = round(($fim - $inicio) * 1000, 2);
         return json_encode($response, JSON_UNESCAPED_UNICODE);
     }
+
+    public function getUserPerDay(){
+        $inicio = microtime(true);
+        $response = $this->user->getUserPerDay();
+
+        $response["body"]["timestamp"] = date(DATE_ISO8601);
+        $fim = microtime(true);
+        $response["body"]['execution_time_ms'] = round(($fim - $inicio) * 1000, 2);
+        return json_encode($response, JSON_UNESCAPED_UNICODE);
+    }
+
+    public function getEvaluation(){
+        $inicio = microtime(true);
+        $query = new \App\Libraries\Endpoints();
+        
+        $endpoints = [
+            '/superusers',
+            '/top-countries',
+            '/team-insights',
+            '/active-users-per-day'
+        ];
+
+        $results = [];
+
+        foreach($endpoints as $endpoint){
+            
+            $response = $query->getTest($endpoint);
+            
+            $results[$endpoint] = [
+                'status'         => $response['status'],
+                'time_ms'        => $response['time'],
+                'valid_response' => $response['valid_response'],
+                'error'          => $response['error'],
+            ];
+        }
+
+        $res['status'] = 200;
+        $res['body']['tested_endpoints'] = $results;
+        $res["body"]["timestamp"] = date(DATE_ISO8601);
+        $fim = microtime(true);
+        $res["body"]['execution_time_ms'] = round(($fim - $inicio) * 1000, 2);
+        return json_encode($res, JSON_UNESCAPED_UNICODE);
+    }
 }
